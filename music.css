@@ -1,0 +1,131 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap');
+
+/* ------------ Variable ------------ */
+:root {
+    --font-color: rgb(0 0 0 / 80%);
+}
+
+/* ------------ Reset ------------ */
+body, body * {
+    margin: 0;
+    padding: 0;
+    outline: none;
+    box-sizing: border-box;
+    font-family: 'Quicksand', sans-serif;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    background: url(assets/img/Ayra_Starr-Rush.jpg) no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+/* ------------ faded background container ------------ */
+.outer-container {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--font-color);
+}
+
+/* ------------ music player container/frame ------------ */
+.player-container {
+    width: 80%;
+    max-width: 320px;
+    background-color: #eee;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px 5px var(--font-color);
+}
+
+/* ------------ music image displayer section ------------ */
+.img-container {
+    position: relative;
+    top: -70px;
+    margin: auto;
+    width: 70%;
+    height: 250px;
+}
+
+.music-dp {
+    width: 100%;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px 5px var(--font-color);
+}
+
+/* ------------ music title and artist section ------------ */
+.music-details {
+    position: relative;
+    top: -85px;
+    width: 100%;
+}
+
+.title, .artist {
+    text-align: center;
+    margin-top: 5px;
+    color: var(--font-color);
+}
+
+.title {
+    font-size: 30px;
+    font-weight: 700;
+}
+
+.artist {
+    font-size: 20px;
+    font-weight: 500;
+}
+
+/* ------------ Playback Time Display ------------ */
+.playback-time {
+    position: relative;
+    top: -70px;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 35px;
+}
+
+.playback-speed-container {
+    position: relative;
+    top: -60px;
+    width: 80%;
+    height: 4px;
+    margin: auto;
+    background-color: #fff;
+}
+
+.playback-speed {
+    width: 60%;
+    height: 100%;
+    background-color: var(--font-color);
+    border-radius: 15px;
+}
+
+/* ------------ control buttons section ------------ */
+.control-container {
+    position: relative;
+    top: -40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.fa-backward, .fa-forward {
+    font-size: 25px;
+    margin: 0 30px;
+    color: rgb(0 0 0 / 60%);
+    cursor: pointer;
+}
+
+.main-button {
+    font-size: 40px;
+    color: rgb(0 0 0 / 60%);
+    cursor: pointer;
+}
+
+.fa-backward:hover, .fa-forward:hover, .main-button:hover {
+    color: rgb(0 0 0 / 80%);
+}

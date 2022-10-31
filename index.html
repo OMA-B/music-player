@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="assets/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    <link rel="stylesheet" href="music.css">
+    <title>Music Player</title>
+</head>
+<body>
+    <!-- faded background container -->
+    <div class="outer-container">
+        <!-- music player container/frame -->
+        <div class="player-container">
+            <!-- music image displayer section -->
+            <div class="img-container">
+                <img src="assets/img/Ayra_Starr-Rush.jpg" alt="" class="music-dp">
+            </div>
+            <!-- music title and artist section -->
+            <div class="music-details">
+                <h2 class="title">Rush</h2>
+                <h3 class="artist">Ayra Starr</h3>
+            </div>
+            <!-- audio player section -->
+            <div class="audio-container">
+                <audio src="assets/songs/Ayra_Starr-Rush.mp3" class="player" controls hidden></audio>
+                <!-- Playback Time Display -->
+                <div class="playback-time">
+                    <span class="current-time">0:00</span>
+                    <span class="duration">3:05</span>
+                </div>
+                <div class="playback-speed-container">
+                    <div class="playback-speed"></div>
+                </div>
+                <!-- control buttons section -->
+                <div class="control-container">
+                    <i class="fa-solid fa-backward" title="Previous"></i>
+                    <i class="fa-solid fa-play main-button" title="Play"></i>
+                    <i class="fa-solid fa-forward" title="Next"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="play.js"></script>
+</body>
+</html>
