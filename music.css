@@ -98,7 +98,7 @@ body {
 }
 
 .playback-speed {
-    width: 60%;
+    width: 0%;
     height: 100%;
     background-color: var(--font-color);
     border-radius: 15px;

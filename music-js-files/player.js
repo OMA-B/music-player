@@ -5,24 +5,9 @@ const title = document.querySelector('.title');
 const artist = document.querySelector('.artist');
 const player = document.querySelector('.player');
 const current_time = document.querySelector('.current-time');
-const duration = document.querySelector('.duration');
+const duration_time = document.querySelector('.duration');
 const playback_speed_container = document.querySelector('.playback-speed-container');
 const ctrl_btns = document.querySelectorAll('.control-container .fa-solid');
-
-// Array to convey song details dynamically
-const songs = [
-    { name: 'Ayra_Starr-Rush', title: 'Rush', artist: 'Ayra Starr' },
-    { name: 'Bank_Alert', title: 'Bank Alert', artist: 'Davolee' },
-    { name: 'Buju-Outside', title: 'Outside', artist: 'BNXN' },
-    { name: 'For-Here-Buju', title: 'For Here', artist: 'BNXN' },
-    { name: 'I-Do-Buju', title: 'I Do', artist: 'BNXN' },
-    { name: 'Kizz-Daniel-Cough-Odo', title: 'Cough(Odo)', artist: 'Kizz Daniel' },
-    { name: 'ladipoe_feeling_feat._buju', title: 'Feeling', artist: 'LadiPoe ft. BNXN' },
-    { name: 'Let_Me_Down_Slowly_x_Main_Dhoondne_Ko_Zamaane_Mein_Lofi_Remix+_Arijit', title: 'Let Me Down Slowly', artist: 'Main Dhoondne...' },
-    { name: 'Mohbad_-_Peace', title: 'Peace', artist: 'Mohbad' },
-    { name: 'Never-Stopped-Buju', title: 'Never Stopped', artist: 'BNXN' },
-    { name: 'Star-Life-Tee-man20', title: 'Star Life', artist: 'Tee-Man20' }
-];
 
 // To go to previous and next songs
 let music_count = 0
@@ -83,7 +68,34 @@ const pause_song = () => {
 // To play and pause songs
 const music_player = () => is_playing ? pause_song() : play_song();
 
+// To check, populate and control time stamp of music playing
+const timing_function = (e) => {
+    // Destructuring time update srcElement object
+    const { currentTime, duration } = e.srcElement
+    // Populating playback speed time with current time in DOM
+    const time_in_minute = Math.floor(currentTime/60);
+    let time_in_second = Math.floor(currentTime%60);
+    if (time_in_second < 10) {
+        time_in_second = `0${time_in_second}`;
+    }
+    current_time.textContent = `${time_in_minute}:${time_in_second}`;
+    // Populating duration with duration time in DOM
+    const duration_in_minute = Math.floor(duration/60);
+    let duration_in_second = Math.floor(duration%60);
+    if (duration_in_second < 10) {
+        duration_in_second = `0${duration_in_second}`;
+    }
+    // To avoid showing NaN while the numbers are yet to be populated
+    if (duration_in_minute) {
+        duration_time.textContent = `${duration_in_minute}:${duration_in_second}`;
+    }
+    // Populating playback speed bar with current time
+    const time_in_percent = Math.floor((currentTime/duration) * 100);
+    playback_speed_container.children[0].style.width = `${time_in_percent}%`;
+}
+
 // Event Listeners
+player.addEventListener('timeupdate', timing_function);
 ctrl_btns[0].addEventListener('click', previous_song);
 ctrl_btns[1].addEventListener('click', music_player);
 ctrl_btns[2].addEventListener('click', next_song);
