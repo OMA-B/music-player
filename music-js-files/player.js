@@ -94,8 +94,19 @@ const timing_function = (e) => {
     playback_speed_container.children[0].style.width = `${time_in_percent}%`;
 }
 
+// To allow playback at any point on the playback speed bar
+const music_jump = (e) => {
+    const width = e.srcElement.clientWidth;
+    const positionX = e.offsetX;
+    // Position at any point gotten, now to match with music duration to allow music play at any point clicked
+    const { duration } = player;
+    player.currentTime = (positionX/width) * duration;
+}
+
 // Event Listeners
 player.addEventListener('timeupdate', timing_function);
 ctrl_btns[0].addEventListener('click', previous_song);
 ctrl_btns[1].addEventListener('click', music_player);
 ctrl_btns[2].addEventListener('click', next_song);
+playback_speed_container.addEventListener('click', music_jump);
+player.addEventListener('ended', next_song);

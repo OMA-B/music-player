@@ -95,6 +95,7 @@ body {
     height: 4px;
     margin: auto;
     background-color: #fff;
+    cursor: pointer;
 }
 
 .playback-speed {
