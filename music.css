@@ -12,6 +12,7 @@ body, body * {
     outline: none;
     box-sizing: border-box;
     font-family: 'Quicksand', sans-serif;
+    -webkit-tap-highlight-color: transparent;
 }
 
 body {
